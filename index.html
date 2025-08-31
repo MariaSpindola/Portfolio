@@ -1,178 +1,368 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maria Spíndola | UGC Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maria Spíndola — Vídeo, design & UX</title>
+  <meta name="description" content="Portfólio com foco em resultado. Vídeo, design e UX/UI para explicar seu produto e converter visitas em clientes. Peça um orçamento pelo WhatsApp." />
+  <link rel="canonical" href="https://example.com/" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light only" />
+  <meta property="og:title" content="Maria Spíndola — Vídeo, design & UX" />
+  <meta property="og:description" content="Conteúdo e interfaces claras que vendem. Veja cases e chame no WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="assets/maria.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Maria Spíndola","jobTitle":"Designer & Analista de Marketing","url":"https://example.com/","image":"assets/maria.jpg","knowsAbout":["audiovisual","design","ux","ui","landing page"],"sameAs":["https://www.linkedin.com/in/mariajbspindola","https://instagram.com/mariajspindolla"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #7f4ce0;
-      --text-color: #111;
-      --bg-color: #fefefe;
-      --muted-text: #666;
-    }
+    :root{color-scheme:light;--bg:#fff;--text:#101225;--muted:#5f6780;--card:#fff;--line:#e8ecf5;--accent:#6D5CFF;--accent-2:#874CFF;--accent-3:#FF7CCB;--radius:16px;--maxw:1200px;--shadow:0 10px 30px rgba(20,24,40,.06)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:24px}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      padding: 0;
-    }
+    /* Header */
+    header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.82);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:28px;height:28px;border-radius:8px;object-fit:cover;border:1px solid var(--line)}
+    nav ul{display:flex;gap:6px;list-style:none;padding:0;margin:0}
+    nav a{padding:10px 12px;border-radius:8px;color:var(--muted)}
+    nav a[aria-current="page"], nav a:hover{background:#f2f4ff;color:var(--text)}
+    .menu-btn{display:none;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px}
+    @media (max-width:860px){nav ul{display:none}nav[aria-expanded="true"] ul{display:flex;position:absolute;right:24px;top:64px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px}.menu-btn{display:inline-flex}}
 
-    header {
-      background-color: var(--bg-color);
-      padding: 2rem 1rem;
-      text-align: center;
-    }
+    /* Hero */
+    .hero{position:relative;padding:72px 24px 32px}
+    .hero::before{content:"";position:absolute;inset:-10% -10% auto -10%;height:58vh;z-index:-1;pointer-events:none;filter:blur(40px);background:radial-gradient(40% 40% at 20% 28%, rgba(109,92,255,.25), transparent 60%),radial-gradient(45% 45% at 80% 18%, rgba(255,124,203,.18), transparent 60%),radial-gradient(30% 30% at 32% 75%, rgba(135,76,255,.16), transparent 60%)}
+    h1{font-size:clamp(28px,4vw,46px);line-height:1.15;margin:0 0 12px}
+    .sub-hero{font-size:clamp(16px,2vw,18px);color:#3d4250;margin:0 0 22px;max-width:62ch}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-    header h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin: 0.5rem 0;
-      color: var(--text-color);
-    }
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:1px solid var(--line);background:#fff;transition:transform .2s ease, box-shadow .2s ease;cursor:pointer;font-weight:600}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(109,92,255,.18)}
+    .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+    .btn.ghost{background:#fff}
 
-    header .subtitle {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-    }
+    .chip{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
-    header .tags {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      color: var(--muted-text);
-    }
+    /* Sections */
+    section{padding:40px 0;border-top:1px solid var(--line)}
+    h2{font-size:clamp(22px,3vw,28px);margin:0 0 8px}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .card p{color:#384057;margin:0 0 10px}
+    @media(min-width:740px){.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}}
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-    }
+    /* Pricing */
+    .pricing .card{position:relative}
+    .badge{position:absolute;top:14px;right:14px;background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;font-size:12px;padding:6px 10px;border-radius:999px}
+    .price{font-size:22px;font-weight:700}
+    .price small{font-weight:500;color:#6a6f80}
+    .feat{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 
-    .gallery img {
-      width: 300px;
-      border-radius: 12px;
-    }
+    /* Portfolio */
+    .thumb{aspect-ratio:16/9;background:linear-gradient(120deg,#f6f8ff,#fff0ff);border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
+    .thumb .tag{position:absolute;top:10px;left:10px}
+    .thumb .title{position:absolute;bottom:10px;left:10px;right:10px;font-weight:600}
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px;position:relative}
+    .tabs [role="tab"]{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:#242a3a;cursor:pointer}
+    .tabs [role="tab"][aria-selected="true"]{background:linear-gradient(120deg,#eef2ff,#fff);border-color:#dfe6ff}
+    .tabpanel{display:none}
+    .tabpanel[aria-hidden="false"]{display:block}
 
-    h2 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      border-left: 5px solid var(--primary-color);
-      padding-left: 0.5rem;
-      margin-bottom: 1rem;
-    }
+    /* Conteúdo */
+    .content-grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .content-card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .content-card iframe,.content-card img{width:100%;aspect-ratio:16/9;display:block;border:0}
+    .content-card .body{padding:14px}
+    @media(min-width:820px){.content-card{grid-column:span 6}}
 
-    .video-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
+    /* About */
+    .about{display:grid;gap:18px;grid-template-columns:1fr}
+    @media(min-width:900px){.about{grid-template-columns:1.2fr 1fr}}
+    .avatar{border-radius:16px;border:1px solid var(--line);overflow:hidden;background:#f5f7ff;min-height:240px}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-    .video-grid video {
-      width: 300px;
-      border-radius: 12px;
-    }
+    /* Testimonials */
+    .marquee{display:flex;gap:16px;overflow:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+    .marquee .q{scroll-snap-align:start;min-width:320px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
 
-    .photo-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+    /* FAQ */
+    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+    .faq details+details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:600}
 
-    .photo-grid img {
-      width: 300px;
-      border-radius: 12px;
-    }
+    /* Footer & sticky */
+    footer{border-top:1px solid var(--line);padding:30px 24px;color:#6a7184}
+    .actionbar{position:sticky;bottom:0;z-index:999;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+    .actionbar .inner{display:flex;gap:12px;align-items:center;justify-content:center;padding:12px}
 
-    .contact-info {
-      font-size: 1.1rem;
-      line-height: 2;
-      text-align: center;
-    }
+    /* Progress & blob */
+    #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-3));z-index:2000;box-shadow:0 0 10px rgba(109,92,255,.5)}
+    .cursor-blob{position:fixed;top:0;left:0;width:200px;height:200px;border-radius:50%;pointer-events:none;z-index:999;opacity:.35;mix-blend-mode:multiply;background:radial-gradient(50% 50% at 50% 50%, rgba(255,124,203,.5), rgba(109,92,255,.5) 60%, transparent 70%);filter:blur(30px);transform:translate(-50%,-50%)}
+    @media (max-width:820px){.cursor-blob{display:none}}
 
-    .contact-info a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
+    /* Motion prefs */
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.thumb,#progress,.cursor-blob{transition:none;animation:none}.cursor-blob{display:none}}
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #999;
-      font-size: 0.9rem;
-    }
+    /* Utils */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    .mt-8{margin-top:8px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}
   </style>
 </head>
 <body>
+  <a href="#conteudo" class="sr-only">Pular para o conteúdo</a>
+  <div id="progress" aria-hidden="true"></div>
   <header>
-    <h1>Maria Spíndola</h1>
-    <p class="subtitle">Content Creator & Social Media Designer</p>
-    <p class="tags">Lifestyle | Moda | Tecnologia</p>
+    <div class="container nav">
+      <div class="brand" aria-label="Marca">
+        <img class="logo" src="assets/logo.png" width="28" height="28" alt="Logomarca Maria Spíndola" />
+        <strong>Maria Spíndola</strong>
+      </div>
+      <nav aria-label="principal" id="mainNav" aria-expanded="false">
+        <button class="menu-btn" id="menuBtn" aria-controls="menuList" aria-expanded="false" aria-label="Abrir menu">☰ Menu</button>
+        <ul id="menuList" role="list">
+          <li><a href="#home" aria-current="page">Home</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#provas">Provas</a></li>
+          <li><a href="#conteudo">Conteúdo</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="gallery">
-    <img src="Foto01.png" alt="Foto 01">
-    <img src="Foto02.png" alt="Foto 02">
-    <img src="Foto03.png" alt="Foto 03">
-  </div>
+  <main id="home" class="container hero">
+    <h1>Vídeo, design e UX para marcas que querem <span style="color:var(--accent)">clareza</span> e conversão.</h1>
+    <p class="sub-hero">Explico o seu produto com histórias e interfaces diretas — do roteiro à landing page — para transformar atenção em cliques e vendas.</p>
+    <div class="cta-row">
+      <a id="cta-whats-hero" class="btn primary" href="#contato" aria-label="Pedir orçamento no WhatsApp">Pedir orçamento no WhatsApp</a>
+      <a id="cta-portfolio" href="#portfolio" class="btn ghost" aria-label="Ver portfólio">Ver portfólio</a>
+    </div>
+    <div class="meta"><span class="chip">Florianópolis · remoto/presencial</span><span class="chip">Audiovisual · Design · UX/UI</span><span class="chip">Resposta rápida</span></div>
+  </main>
 
-  <section>
-    <h2>Sobre mim – Vestida de verdade.</h2>
-    <p>Prazer, sou Maria Spíndola — designer por formação, criadora por essência. Minha paixão é transformar o cotidiano em conteúdo com personalidade...</p>
-  </section>
-
-  <section>
-    <h2>Reels – Vídeos</h2>
-    <div class="video-grid">
-      <video controls>
-        <source src="Video01.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-      </video>
-      <video controls>
-        <source src="Video02.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-      </video>
-      <video controls>
-        <source src="Video03.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-      </video>
+  <section id="servicos">
+    <div class="container">
+      <h2>Serviços</h2>
+      <p class="sub">Pacotes claros para começar sem fricção. Escolha o que precisa e me chame.</p>
+      <div class="grid pricing">
+        <article class="card span-4">
+          <span class="badge">Mais pedido</span>
+          <h3>Pacote de vídeo mensal</h3>
+          <p>4–8 vídeos curtos por mês (Reels/Shorts). Cortes, legendas e thumbnails no seu tom.</p>
+          <p class="price">R$ — <small>sob medida</small></p>
+          <div class="feat"><span class="chip">Roteiro curto</span><span class="chip">Legenda</span><span class="chip">Thumbnails</span></div>
+          <p><small>Inclui até 2 rodadas de ajustes.</small></p>
+          <a class="btn" href="#contato" data-tmpl="Pacote de vídeo mensal">Quero este pacote</a>
+        </article>
+        <article class="card span-4">
+          <h3>Landing page em 7 dias</h3>
+          <p>Diagnóstico, wireframe e UI. Handoff pronto para publicar e testar.</p>
+          <p class="price">R$ — <small>sob medida</small></p>
+          <div class="feat"><span class="chip">Diagnóstico</span><span class="chip">Wireframe</span><span class="chip">UI</span></div>
+          <p><small>Com copy e seções focadas em conversão.</small></p>
+          <a class="btn" href="#contato" data-tmpl="Landing page em 7 dias">Quero este pacote</a>
+        </article>
+        <article class="card span-4">
+          <h3>Design on‑demand</h3>
+          <p>Banco de horas para peças e identidade leve: 10h, 20h ou 40h.</p>
+          <p class="price">R$ — <small>sob medida</small></p>
+          <div class="feat"><span class="chip">Artes sociais</span><span class="chip">Apresentações</span><span class="chip">PDFs</span></div>
+          <a class="btn" href="#contato" data-tmpl="Design on‑demand">Quero este pacote</a>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Galeria de Fotos</h2>
-    <div class="photo-grid">
-      <img src="Foto01.png" alt="Foto Galeria 01">
-      <img src="Foto02.png" alt="Foto Galeria 02">
-      <img src="Foto03.png" alt="Foto Galeria 03">
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfólio</h2>
+      <p class="sub">Navegue por área. Use as setas do teclado nas abas.</p>
+      <div class="tabs" role="tablist" aria-label="Categorias do portfólio">
+        <button role="tab" aria-selected="true" aria-controls="panel-tudo" id="tab-tudo">Tudo</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-audiovisual" id="tab-audiovisual">Audiovisual</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-design" id="tab-design">Design</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-uxui" id="tab-uxui">UX/UI</button>
+      </div>
+      <div id="panel-tudo" class="tabpanel" role="tabpanel" aria-labelledby="tab-tudo" aria-hidden="false">
+        <div class="grid">
+          <article class="card span-6" data-cat="audiovisual">
+            <div class="thumb" aria-label="Teaser de vídeo"><span class="chip tag">Audiovisual</span><div class="title">Lançamento local — vídeo curto (teaser)</div><button class="btn ghost mt-8" data-case="case1" aria-label="Abrir case de vídeo">▶ Ver case</button></div>
+            <p class="mt-16">Objetivo: gerar conversas no WhatsApp para marca local. Papel: roteiro, captação e edição.</p>
+          </article>
+          <article class="card span-6" data-cat="design">
+            <div class="thumb" aria-label="Arte social"><span class="chip tag">Design</span><div class="title">Sankhya — materiais de design</div><button class="btn ghost mt-8" data-case="case2" aria-label="Abrir case de design">▶ Ver case</button></div>
+            <p class="mt-16">Peças para destacar soluções ERP. Papel: direção de arte e produção.</p>
+          </article>
+          <article class="card span-6" data-cat="uxui">
+            <div class="thumb" aria-label="Interface"><span class="chip tag">UX/UI</span><div class="title">DIBEA — um match para a vida</div><button class="btn ghost mt-8" data-case="case3" aria-label="Abrir case de UX/UI">▶ Ver case</button></div>
+            <p class="mt-16">App estilo swipe para adoção. Papel: pesquisa, fluxos, wireframe e UI.</p>
+          </article>
+        </div>
+      </div>
+      <div id="panel-audiovisual" class="tabpanel" role="tabpanel" aria-labelledby="tab-audiovisual" aria-hidden="true"></div>
+      <div id="panel-design" class="tabpanel" role="tabpanel" aria-labelledby="tab-design" aria-hidden="true"></div>
+      <div id="panel-uxui" class="tabpanel" role="tabpanel" aria-labelledby="tab-uxui" aria-hidden="true"></div>
     </div>
   </section>
 
-  <section>
-    <h2>Contato</h2>
-    <p class="contact-info">
-      ✉️ <a href="mailto:maria@email.com">mjspindola@hotmail.com</a><br />
-      📱 <a href="https://instagram.com/mariajspindolla" target="_blank">@seuperfil</a><br />
-      💼 <a href="https://www.linkedin.com/in/mariajbspindola" target="_blank">LinkedIn</a>
-    </p>
+  <section id="provas">
+    <div class="container">
+      <h2>Resultados e depoimentos</h2>
+      <p class="sub">Métricas que importam e feedback de quem já trabalhou comigo.</p>
+      <div class="grid">
+        <article class="card span-4"><h3><span data-count="9.1">0</span>%</h3><p>Taxa de conversão de landing de validação.</p></article>
+        <article class="card span-4"><h3>+<span data-count="30">0</span>%</h3><p>Aumento de engajamento com nova direção de arte.</p></article>
+        <article class="card span-4"><h3><span data-count="7">0</span> dias</h3><p>Para publicar uma landing page pronta para teste.</p></article>
+      </div>
+      <div class="marquee mt-16" aria-label="depoimentos em carrossel">
+        <div class="q"><b>“Clareza no roteiro e ritmo certo: dobramos o engajamento.”</b> — cliente local</div>
+        <div class="q"><b>“Processo leve, aprovações rápidas. Estética limpa.”</b> — parceiro</div>
+        <div class="q"><b>“Em 7 dias a landing já tinha leads qualificados.”</b> — campanha</div>
+      </div>
+      <p class="mt-8" style="color:#7a8094;font-size:14px">*Os números variam conforme oferta e mídia. Aqui estão resultados obtidos em projetos específicos.</p>
+    </div>
   </section>
 
-  <footer>
-    © 2025 Maria Spíndola. Todos os direitos reservados.
-  </footer>
+  <section id="conteudo">
+    <div class="container">
+      <h2>Conteúdo</h2>
+      <p class="sub">Bastidores, edições e reflexões sobre design e UX.</p>
+      <div class="content-grid">
+        <article class="content-card"><img src="https://placehold.co/1280x720/png" alt="Thumbnail de vídeo curto com antes e depois" loading="lazy" width="1280" height="720"><div class="body"><strong>Do bruto ao post</strong><br><span class="chip">YouTube</span></div></article>
+        <article class="content-card"><img src="https://placehold.co/1280x720/png" alt="Capa de carrossel sobre UX e conversão" loading="lazy" width="1280" height="720"><div class="body"><strong>Design que ajuda a vender</strong><br><span class="chip">LinkedIn</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h2>Sobre</h2>
+      <div class="about">
+        <figure class="avatar"><img src="assets/maria.jpg" alt="Foto de Maria Spíndola, de blazer preto" loading="lazy" width="720" height="900"></figure>
+        <div>
+          <p>Sou <b>Maria Spíndola</b>, designer e analista de marketing. Trabalho onde audiovisual, design e UX se encontram. Meu método 3C — <b>clarear</b> objetivo, <b>construir</b> visual e <b>converter</b> com CTA — mantém o projeto leve, direto e mensurável.</p>
+          <h3 class="mt-16">Formação</h3>
+          <ul><li><b>Administração</b> — Estácio (2017–2024)</li><li><b>Design Gráfico</b> — Uninter (2025)</li></ul>
+          <h3 class="mt-16">Experiência</h3>
+          <p><b>Sankhya Gestão de Negócios</b></p>
+          <ul>
+            <li><b>Sucesso do Cliente</b> — otimização de processos, NPS, documentação e treinamentos.</li>
+            <li><b>Marketing</b> — artes para workshops e eventos, automações e apoio comercial.</li>
+          </ul>
+          <div class="feat mt-16"><span class="chip">Premiere/CapCut/After</span><span class="chip">Figma/Canva</span><span class="chip">Roteiro & direção de arte</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2>Orçamento rápido</h2>
+      <p class="sub">Em menos de 1 minuto você me chama no WhatsApp com um briefing claro.</p>
+      <div class="grid">
+        <form class="card span-8" id="quickForm" onsubmit="return false">
+          <div class="grid">
+            <div class="span-6"><label for="svc">Serviço</label><br>
+              <select id="svc" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px">
+                <option>Pacote de vídeo mensal</option>
+                <option>Landing page em 7 dias</option>
+                <option>Design on‑demand</option>
+              </select>
+            </div>
+            <div class="span-6"><label for="when">Quando quer começar?</label><br>
+              <select id="when" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px">
+                <option>Esta semana</option>
+                <option>Próxima semana</option>
+                <option>Este mês</option>
+              </select>
+            </div>
+          </div>
+          <label class="mt-16" for="brief">Objetivo em 1 frase</label>
+          <textarea id="brief" rows="3" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px" placeholder="Ex.: aumentar conversas no WhatsApp com vídeos curtos"></textarea>
+          <div class="cta-row mt-16">
+            <a id="sendQuote" class="btn primary" href="#">Enviar no WhatsApp</a>
+            <a class="btn ghost" href="mailto:mjspindola@hotmail.com?subject=Projeto%20com%20Maria">Prefiro e‑mail</a>
+          </div>
+        </form>
+        <div class="card span-4">
+          <h3>Contato direto</h3>
+          <p><b>WhatsApp:</b> +55 (48) 99185‑7940</p>
+          <p><b>E‑mail:</b> mjspindola@hotmail.com</p>
+          <p><b>Redes:</b> <a href="https://instagram.com/mariajspindolla" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/mariajbspindola" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p class="mt-16">Respondo rápido. Podemos começar com uma chamada de 15 minutos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">© <span id="year"></span> Maria Spíndola — Florianópolis · <a href="#home">voltar ao topo</a></footer>
+
+  <!-- Dialogs -->
+  <dialog id="case1"><div class="container"><h3>Case — vídeo local (teaser)</h3><p><b>Objetivo:</b> conversas qualificadas no WhatsApp.</p><p><b>Papel:</b> roteiro, captação e edição.</p><form method="dialog"><button class="btn">Fechar</button></form></div></dialog>
+  <dialog id="case2"><div class="container"><h3>Case — Sankhya: materiais de design</h3><p><b>Desafio:</b> comunicar vantagens das soluções ERP.</p><p><b>Processo:</b> direção de arte + peças multiplataforma.</p><p class="mt-16"><a class="btn" href="https://mariaspindola.github.io/Spindola-design/artes.html" target="_blank" rel="noopener">Abrir case completo</a></p><form method="dialog"><button class="btn">Fechar</button></form></div></dialog>
+  <dialog id="case3"><div class="container"><h3>Case — DIBEA: um match para a vida</h3><p><b>Ideia:</b> app estilo swipe para adoção.</p><p><b>Processo:</b> fluxos, wireframes e UI no Figma.</p><p class="mt-16"><a class="btn" href="https://mariaspindola.github.io/Spindola-design/projetoong.html" target="_blank" rel="noopener">Abrir case completo</a></p><form method="dialog"><button class="btn">Fechar</button></form></div></dialog>
+
+  <div class="actionbar"><div class="inner"><a id="cta-sticky" class="btn primary" href="#contato">Quero um orçamento</a></div></div>
+  <div class="cursor-blob" aria-hidden="true"></div>
+
+  <script>
+    const $ = s=>document.querySelector(s), $$ = s=>document.querySelectorAll(s);
+    $('#year').textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const menuBtn=$('#menuBtn'), mainNav=$('#mainNav');
+    menuBtn?.addEventListener('click',()=>{const ex=mainNav.getAttribute('aria-expanded')==='true';mainNav.setAttribute('aria-expanded',String(!ex));menuBtn.setAttribute('aria-expanded',String(!ex));});
+
+    // Nav ativa + progress
+    const sections=['home','servicos','portfolio','provas','conteudo','sobre','contato'].map(id=>document.getElementById(id));
+    const navLinks=[...document.querySelectorAll('header nav a')];
+    function onScroll(){const y=scrollY+120;let cur='home';for(const el of sections){if(el&&el.offsetTop<=y)cur=el.id}navLinks.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+cur?'page':'false'));const h=document.documentElement;const sc=h.scrollTop;const max=h.scrollHeight-h.clientHeight;$('#progress').style.width=Math.max(0,Math.min(1,sc/max))*100+'%';}
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+    // Abas acessíveis
+    const tablist=document.querySelector('[role="tablist"]');const tabs=[...document.querySelectorAll('[role="tab"]')];
+    const panels={'tab-tudo':$('#panel-tudo'),'tab-audiovisual':$('#panel-audiovisual'),'tab-design':$('#panel-design'),'tab-uxui':$('#panel-uxui')};
+    function hydrate(){const all=[...$('#panel-tudo').querySelectorAll('[data-cat]')];for(const k of Object.keys(panels))if(k!=='tab-tudo')panels[k].innerHTML='';all.forEach(card=>{const cat=card.getAttribute('data-cat');if(cat&&panels['tab-'+cat])panels['tab-'+cat].appendChild(card.cloneNode(true));});}
+    hydrate();
+    function activateTab(t){tabs.forEach(x=>{x.setAttribute('aria-selected','false');panels[x.id].setAttribute('aria-hidden','true');});t.setAttribute('aria-selected','true');panels[t.id].setAttribute('aria-hidden','false');t.focus();}
+    tablist?.addEventListener('click',e=>{const t=e.target;if(t.getAttribute('role')==='tab')activateTab(t)});
+    tablist?.addEventListener('keydown',e=>{const i=tabs.indexOf(document.activeElement);if(i===-1)return; if(e.key==='ArrowRight'){e.preventDefault();activateTab(tabs[(i+1)%tabs.length]);} if(e.key==='ArrowLeft'){e.preventDefault();activateTab(tabs[(i-1+tabs.length)%tabs.length]);} if(e.key==='Home'){e.preventDefault();activateTab(tabs[0]);} if(e.key==='End'){e.preventDefault();activateTab(tabs[tabs.length-1]);}});
+
+    // Dialogs com foco
+    const openers=$$('[data-case]'); openers.forEach(op=>op.addEventListener('click',()=>{const d=document.getElementById(op.dataset.case);d?.showModal();trapFocus(d);}));
+    function trapFocus(dialog){const f=dialog.querySelectorAll('a,button,input,textarea,select,[tabindex]:not([tabindex="-1"])');const first=f[0],last=f[f.length-1];function onKey(e){if(e.key==='Escape')dialog.close();if(e.key==='Tab'){if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}}dialog.addEventListener('keydown',onKey);dialog.addEventListener('close',()=>dialog.removeEventListener('keydown',onKey),{once:true});setTimeout(()=>first?.focus(),10)}
+
+    // Contadores com decimais pt-BR
+    const counters=$$('[data-count]');
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target;const to=parseFloat(el.dataset.count);let v=0;const step=Math.max(0.1,to/60);const t=setInterval(()=>{v+=step;if(v>=to){v=to;clearInterval(t);}el.textContent=v.toLocaleString('pt-BR',{maximumFractionDigits:1});},20);io.unobserve(el);}})});
+    counters.forEach(c=>io.observe(c));
+
+    // Cursor blob (respeita reduzir movimento)
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const blob=document.querySelector('.cursor-blob');if(blob&&!reduce){let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;const raf=()=>{x+=(tx-x)*0.12;y+=(ty-y)*0.12;blob.style.left=x+'px';blob.style.top=y+'px';requestAnimationFrame(raf)};addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});raf();}
+
+    // WhatsApp + UTM
+    const params=new URLSearchParams(location.search);const utm=params.toString();const WHATS='5548991857940';const msg='Oi%20Maria%2C%20vim%20do%20seu%20site%20e%20quero%20falar%20sobre%20um%20projeto.';function withUtm(url){return utm?url+(url.includes('?')?'&':'?')+utm:url}
+    const waBase=`https://wa.me/${WHATS}?text=${msg}`; ['#cta-whats-hero','#cta-sticky'].forEach(id=>{const a=$(id); if(a) a.href=withUtm(waBase)});
+
+    // Form -> WhatsApp
+    $('#sendQuote').addEventListener('click',()=>{const svc=$('#svc').value;const when=$('#when').value;const brief=$('#brief').value.trim();const txt=encodeURIComponent(`Olá, Maria! Quero ${svc}. Quando: ${when}. Objetivo: ${brief||'definiremos juntos.'}`);location.href=withUtm(`https://wa.me/${WHATS}?text=${txt}`);});
+    $$('[data-tmpl]').forEach(b=>b.addEventListener('click',()=>$('_#svc')));
+    $$('[data-tmpl]').forEach(b=>b.addEventListener('click',()=>{document.querySelector('#svc').value=b.dataset.tmpl;}));
+  </script>
 </body>
 </html>
